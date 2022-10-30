@@ -3,7 +3,7 @@
 
 ### Description:
 
-Create the infrastructure to deploy a simple website (hellowordwith monitoring.
+Create the infrastructure to deploy a simple website (helloworld with monitoring).
 
 - Simple website/app using Docker;
 - CI/CD (your choice);
@@ -13,4 +13,3 @@ Create the infrastructure to deploy a simple website (hellowordwith monitoring.
 - Write documentation of this website/app clearly and objectively;
 Rules:
 - All codes for this challenge must be published on Github - 3 days for delivery this challenge
-
