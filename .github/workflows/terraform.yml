@@ -7,8 +7,7 @@ env:
   GKE_ZONE:  ${{ secrets.GKE_ZONE }}   # TODO: update to cluster zone
   DEPLOYMENT_NAME: app # TODO: update to deployment name
   REPOSITORY: "repo" # TODO: update to Artifact Registry docker repository 
-  IMAGE: app:1.0
-
+  
 on:
   push:
     branches:
@@ -42,7 +41,6 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
-        #workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
         service_account: 'svc-challenge@challenge-01-367100.iam.gserviceaccount.com'
         credentials_json: ${{ secrets.GCLOUD_SVC_KEY }}
 
