@@ -45,7 +45,7 @@ jobs:
          service_account: 'svc-challenge@challenge-01-367100.iam.gserviceaccount.com'
          credentials_json: ${{ secrets.GCLOUD_SVC_KEY }}
 
-	 - name: 'Set up Cloud SDK'
+     - name: 'Set up Cloud SDK'
        uses: 'google-github-actions/setup-gcloud@v0'
 
      - name: 'Use gcloud CLI'
