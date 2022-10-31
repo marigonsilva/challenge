@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   terraform:
-    name: 'Pipeline - Dev'
+    name: 'Pipeline - Terraform'
     runs-on: ubuntu-latest
     environment: development
     
