@@ -83,7 +83,7 @@ jobs:
        run: |-
             # replacing the image name in the k8s template
             cd kubernetes
-            ../kustomize edit set image app=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}
+            ../kustomize edit set image helloworld=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}
             ../kustomize build . | kubectl apply -f -
             kubectl rollout status deployment/${{ env.DEPLOYMENT_NAME }}
             kubectl get services -o wide
