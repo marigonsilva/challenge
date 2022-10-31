@@ -8,11 +8,11 @@ env:
   DEPLOYMENT_NAME: app # TODO: update to deployment name
   REPOSITORY: "repo" # TODO: update to Artifact Registry docker repository 
   
-on:
-  push:
-    branches:
-    - "main"
-  pull_request:
+#on:
+#  push:
+#    branches:
+#    - "main"
+#  pull_request:
 
 permissions:
   contents: read
