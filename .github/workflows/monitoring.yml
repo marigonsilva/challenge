@@ -10,10 +10,6 @@ env:
   IMAGE: app:1.0
 
 on: workflow_dispatch
-  #push:
-  #  branches:
-  #  - "main"
-  #pull_request:
 
 permissions:
   contents: read
@@ -34,8 +30,7 @@ jobs:
         shell: bash
 
     steps:
-
-    - name: 'Prometheus'
+	- name: 'Prometheus'
       uses: 'deliverybot/helm@master'
       with:
         release: 'prometheus-community/kube-prometheus-stack'
