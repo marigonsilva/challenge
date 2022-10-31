@@ -6,7 +6,7 @@ env:
   GAR_LOCATION: ${{ secrets.GAR_LOCATION }} # TODO: update region of the Artifact Registry
   GKE_CLUSTER:  ${{ secrets.GKE_CLUSTER }}    # TODO: update to cluster name
   GKE_ZONE:  ${{ secrets.GKE_ZONE }}   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: app # TODO: update to deployment name
+  DEPLOYMENT_NAME: helloworld # TODO: update to deployment name
   REPOSITORY: "repo" # TODO: update to Artifact Registry docker repository 
   IMAGE: app:1.0
 
