@@ -2,7 +2,7 @@ name: 'Pipeline - Development - Deploy'
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GCLOUD_PROJECT: ${{ secrets.GKE_PROJECT }}
+  #GCLOUD_PROJECT: ${{ secrets.GKE_PROJECT }}
   GAR_LOCATION: ${{ secrets.GAR_LOCATION }} # TODO: update region of the Artifact Registry
   GKE_CLUSTER:  ${{ secrets.GKE_CLUSTER }}    # TODO: update to cluster name
   GKE_ZONE:  ${{ secrets.GKE_ZONE }}   # TODO: update to cluster zone
@@ -36,11 +36,21 @@ jobs:
 
     steps:
 
+     - name: Checkout
+       uses: actions/checkout@v3
+
      - id: 'auth'
        uses: 'google-github-actions/auth@v0'
        with:
          service_account: 'svc-challenge@challenge-01-367100.iam.gserviceaccount.com'
          credentials_json: ${{ secrets.GCLOUD_SVC_KEY }}
+
+	 - name: 'Set up Cloud SDK'
+       uses: 'google-github-actions/setup-gcloud@v0'
+
+     - name: 'Use gcloud CLI'
+       run: |-
+             gcloud info
 
      # Get the GKE credentials so we can deploy to the cluster
      - name: Set up GKE credentials
