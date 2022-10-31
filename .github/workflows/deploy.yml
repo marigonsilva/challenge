@@ -34,6 +34,7 @@ jobs:
     defaults:
       run:
         shell: bash
+    
     steps:
      - name: Docker configuration
        run: |-
