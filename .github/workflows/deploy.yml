@@ -8,7 +8,7 @@ env:
   GKE_ZONE:  ${{ secrets.GKE_ZONE }}   # TODO: update to cluster zone
   DEPLOYMENT_NAME: helloworld # TODO: update to deployment name
   REPOSITORY: "repo" # TODO: update to Artifact Registry docker repository 
-  IMAGE: helloworld:1.0
+  IMAGE: "helloworld:1.0
 
 on: workflow_dispatch
   #push:
