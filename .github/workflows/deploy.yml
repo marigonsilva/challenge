@@ -28,7 +28,6 @@ jobs:
 
     outputs:
       output1: ${{ steps.nginx.outputs.ip }}
-      #output2: ${{ steps.step2.outputs.test }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
