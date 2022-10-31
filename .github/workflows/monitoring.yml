@@ -9,11 +9,11 @@ env:
   REPOSITORY: "repo" # TODO: update to Artifact Registry docker repository 
   IMAGE: app:1.0
 
-on:
-  push:
-    branches:
-    - "main"
-  pull_request:
+on: workflow_dispatch
+  #push:
+  #  branches:
+  #  - "main"
+  #pull_request:
 
 permissions:
   contents: read
@@ -43,9 +43,9 @@ jobs:
         chart: 'kube-prometheus-stack'
         token: '${{ github.token }}'
         value-files: >-
-        [
-          "./monitoring/prometheus.yaml"
-        ]
+          [
+            "./monitoring/prometheus.yaml"
+          ]
       env:
         KUBECONFIG_FILE: "./kubeconfigfile"
 	
