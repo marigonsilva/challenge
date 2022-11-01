@@ -322,7 +322,7 @@ alertmanager:
 
     ## Service type
     ##
-    type: NodePort
+    type: LoadBalancer
 
   ## Configuration for creating a separate Service for each statefulset Alertmanager replica
   ##
@@ -352,7 +352,7 @@ alertmanager:
 
     ## Service type
     ##
-    type: ClusterIP
+    type: LoadBalancer
 
   ## If true, create a serviceMonitor for alertmanager
   ##
@@ -1689,7 +1689,7 @@ prometheusOperator:
   ## Service type
   ## NodePort, ClusterIP, LoadBalancer
   ##
-    type: NodePort
+    type: LoadBalancer
 
     ## List of IP addresses at which the Prometheus server service is available
     ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
@@ -1921,7 +1921,7 @@ prometheus:
 
     ## Service type
     ##
-    type: NodePort
+    type: LoadBalancer
 
     ## gRPC port config
     portName: grpc
@@ -2030,7 +2030,7 @@ prometheus:
 
     ## Service type
     ##
-    type: NodePort
+    type: LoadBalancer
 
     ## Additional port to define in the Service
     additionalPorts: []
@@ -3097,7 +3097,7 @@ thanosRuler:
 
     ## Service type
     ##
-    type: NodePort
+    type: LoadBalancer
 
   ## If true, create a serviceMonitor for thanosRuler
   ##
