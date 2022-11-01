@@ -8,7 +8,7 @@ env:
   GKE_ZONE:  ${{ secrets.GKE_ZONE }}   # TODO: update to cluster zone
   DEPLOYMENT_NAME: helloworld # TODO: update to deployment name
   REPOSITORY: "repo" # TODO: update to Artifact Registry docker repository 
-  IMAGE: helloworld:1.0
+  IMAGE: "helloworld:1.0"
 
 on: workflow_dispatch
   #push:
@@ -83,7 +83,7 @@ jobs:
        run: |-
             # replacing the image name in the k8s template
             cd kubernetes
-            ../kustomize edit set image app=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}
+            ../kustomize edit set image helloworld=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}
             ../kustomize build . | kubectl apply -f -
             kubectl rollout status deployment/${{ env.DEPLOYMENT_NAME }}
             kubectl get services -o wide
