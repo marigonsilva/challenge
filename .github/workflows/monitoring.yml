@@ -2,7 +2,6 @@ name: 'Pipeline - Development - Monitoring'
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  #GCLOUD_PROJECT: ${{ secrets.GKE_PROJECT }}
   GAR_LOCATION: ${{ secrets.GAR_LOCATION }} # TODO: update region of the Artifact Registry
   GKE_CLUSTER:  ${{ secrets.GKE_CLUSTER }}    # TODO: update to cluster name
   GKE_ZONE:  ${{ secrets.GKE_ZONE }}   # TODO: update to cluster zone
@@ -11,10 +10,6 @@ env:
   IMAGE: "helloworld:1.0"
 
 on: workflow_dispatch
-  #push:
-  #  branches:
-  #  - "main"
-  #pull_request:
 
 permissions:
   contents: read
@@ -29,12 +24,30 @@ jobs:
     outputs:
       output1: ${{ steps.nginx.outputs.ip }}
 
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
         shell: bash
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        service_account: 'svc-challenge@challenge-01-367100.iam.gserviceaccount.com'
+        credentials_json: ${{ secrets.GCLOUD_SVC_KEY }}
+
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v0'
+
+    - name: 'Use gcloud CLI'
+      run: |-
+            gcloud info
+
+    - name: 'Get GKE Credentials'
+      run: |-
+            gcloud container clusters get-credentials gke-dev-challenge --zone us-central1-a --project challenge-01-367100 >> ./kubeconfigfile
 
     - name: 'Prometheus'
       uses: 'deliverybot/helm@master'
