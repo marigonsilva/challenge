@@ -56,4 +56,4 @@ jobs:
             ./get_helm.sh
             ls -lsa
             helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-            helm install prometheus prometheus-community/kube-prometheus-stack --namespace "prometheus" --create-namespace
+            helm install prometheus prometheus-community/kube-prometheus-stack -f monitoring/prometheus.yaml --namespace "prometheus" --create-namespace
