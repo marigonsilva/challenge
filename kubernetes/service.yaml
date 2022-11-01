@@ -10,6 +10,6 @@ spec:
       protocol: TCP
       targetPort: 8000
       name: http
-  type: ClusterIP
+  type: NodePort
   selector:
     app: helloworld
