@@ -8,7 +8,7 @@ app.debug = True
 
 comments = {}
 
-@app.route('/')
+@app.route('/list')
 #def api_comment_list():
 #    message = 'Hello World!'
 #    return message;
