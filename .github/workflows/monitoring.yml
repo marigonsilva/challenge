@@ -50,15 +50,10 @@ jobs:
             gcloud container clusters get-credentials gke-dev-challenge --zone us-central1-a --project challenge-01-367100 >> ./kubeconfigfile
 
     - name: 'Prometheus'
-      uses: 'deliverybot/helm@master'
-      with:
-        release: 'prometheus-community/kube-prometheus-stack'
-        namespace: 'prometheus'
-        chart: 'kube-prometheus-stack'
-        token: '${{ github.token }}'
-        value-files: >-
-          [
-            "./monitoring/prometheus.yaml"
-          ]
-      env:
-        KUBECONFIG_FILE: "./kubeconfigfile"
+      run: |-
+            curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+            chmod 700 get_helm.sh
+            ./get_helm.sh
+            ls -lsa
+            helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+            helm install prometheus prometheus-community/kube-prometheus-stack -f ./monitoring/prometheus.yml --namespace "prometheus" --create-namespace
