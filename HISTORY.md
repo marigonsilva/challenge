@@ -8,7 +8,9 @@ gunicorn --log-level debug --keep-alive 60 -b 0.0.0.0:8000 app:app
 ###URLs:
 
 App               = http://34.172.25.129/hello
+
 Prometheus  = http://34.172.250.4:9090/graph
+
 Grafana        =  http://34.134.25.71/login
 
 
