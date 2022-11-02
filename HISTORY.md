@@ -15,8 +15,6 @@ Grafana        =  http://34.134.25.71/login
 
 
 
- #############################################################################################
-
 Foram criados 3 workflows para atender 3 necessidades
  1) Infraestrura GCP via terraform
  2) Deploy da App
@@ -55,13 +53,11 @@ Foram criados 3 workflows para atender 3 necessidades
  5 - Monitoring
      - Foi habilitado na criação do cluster o uso das metricas padrão do GCP Monitoring, essas métricas já incluem Kubernetes e métricas de Infra de containers, incluindo a APP.
      - Foi utilizado prometheus + grafana dentro do cluster (namespace prometheus), mantive as dashboards padrão dessa stack, já que as mesmas trazem bastante informação relevante.
-     
-     
-     
-  #############################################################################################
-  #############################################################################################
-  
-  
+
+#############################################################################################
+
+>>ENGLISH
+
   3 workflows were created to meet these requirements:
    1) GCP infrastructure through terraform
    2) App Deployment
