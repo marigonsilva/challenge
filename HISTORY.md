@@ -1,9 +1,19 @@
-* Para iniciar a aplicação para testes locais, sem container (Start App without container on local machine)
+### Para iniciar a aplicação para testes locais, sem container (Start App without container on local machine)
 
 ```
 cd app
 gunicorn --log-level debug --keep-alive 60 -b 0.0.0.0:8000 app:app 
 ```
+
+###URLs:
+
+App               = http://34.172.25.129/hello
+Prometheus  = http://34.172.250.4:9090/graph
+Grafana        =  http://34.134.25.71/login
+
+
+ #############################################################################################
+ #############################################################################################
 
 Foram criados 3 workflows para atender 3 necessidades
  1) Infraestrura GCP via terraform
@@ -11,7 +21,6 @@ Foram criados 3 workflows para atender 3 necessidades
  3) Deploys do Prometheus e Grafana
  
  Os 3 estão configurados para event_dispatcher, ou seja é possível rodar a qualquer momento.
- 
  
  Sobre o que foi utilizado:
  
