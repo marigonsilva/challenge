@@ -90,5 +90,12 @@ Foram criados 3 workflows para atender 3 necessidades
          
     5 - Monitoring
          - Standard GCP Monitoring metrics is enabled in the creation of the cluster, these metrics already include Kubernetes and Container Infra metrics, including the APP.
-         - Prometheus + grafana is used within the cluster (prometheus namespace), I kept the standard dashboards of this stack, because they bring a lot of relevant information.       
+         - Prometheus + grafana is used within the cluster (prometheus namespace), I kept the standard dashboards of this stack, because they bring a lot of relevant information.      
+         
+         
+         
+         
+         
+  ![Screenshot](images/gke.png) 
+  ![Screenshot](images/app.png) 
     
